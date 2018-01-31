@@ -1,3 +1,145 @@
+Version 1.2.0 (December 27, 2017)
+---------------------------------
+
+Breaking changes:
+
+* Kanboard supports only PHP >= 5.6 (PHP 5.3, 5.4 and 5.5 are not supported anymore)
+
+New features:
+
+* PHP sessions are now stored into the database,
+  In this way, it's easier to run Kanboard behind a load-balancer
+
+Improvements:
+
+* Copy category from parent task when creating a task from a subtask
+* Translation updates and improvements
+
+Version 1.1.1 (December 9, 2017)
+--------------------------------
+
+Breaking changes:
+
+* The Docker tag "stable" is not used anymore, instead use a specific version tag
+* Task limit apply across all swimlanes
+* Kanboard is now using the domain kanboard.org
+
+New features:
+
+* New automatic action to create a subtask assigned to the creator and start the timer
+* New automatic action to stop the timer of subtasks
+* Add command line tool to remove project activities after one year
+* Add command line tool to disable projects not touched during one year
+* Add config option to exclude fields from auth providers sync
+* Add new plugin hooks
+
+Improvements:
+
+* Open audio files in a new tab
+* Upgrade Docker image to Alpine Linux 3.7
+* Improve Docker build to use Docker Hub hooks
+* The application version is now included into the Docker image
+* Disable private projects when disabling a user
+* Allow administrators to update username of remote users
+* Improve layout on mobile/tablet devices
+* Changed board column headings to show swimlane-column total in bold
+* Enable dragging to collapsed columns
+* Add missing checks for requirements
+
+Bug fixes:
+
+* Add class "js-modal-replace" to icons to make it clickable
+* Improve permission checks on custom filters page to avoid forbidden access
+
+Version 1.1.0 (November 20, 2017)
+---------------------------------
+
+Breaking changes:
+
+* Remove feature "Allow everybody to access to this project" (You must define project members and groups)
+* Composer dependencies are now included in the repository to be able to use git-archive (except development dependencies)
+
+New features:
+
+* Add predefined templates for task descriptions
+* Add the possibility to send tasks and comments to multiple recipients
+* Add users, groups and projects search
+* Add command line argument to display Kanboard version
+* Add user backend provider system (to be used by external plugins)
+* Add Romanian and Chinese (Taiwan) translation
+
+Improvements:
+
+* Minor CSS improvements
+* Add help message on project sharing page
+* Task CSV import is now able to handle the priority, start date, tags and one external link
+* Improve iCalendar feed to include tasks with start/end date and due date with a time
+* Check if the start date is before due date
+* You can get an archive of Kanboard by using the download button in Github or the command git archive
+* Translation updates
+
+Bug fixes:
+
+* Fix project dropdown visibility when page is scrolled down
+* Task move events must be executed synchronously
+* Handle CSV files with only "\r" line endings
+
+Version 1.0.48 (October 23, 2017)
+---------------------------------
+
+Improvements:
+
+* Add bulk subtasks creation
+* Add filter by score/complexity
+* Improved display of the header bar
+* Displays bullets from lists in tooltips
+* Updated translations
+* Add tags and priority to task export
+* Make the number of events stored in project activities configurable
+* Do not use jQuery tooltip for task title in collapsed mode
+* Remove dependency on Yarn
+* Improve external task integration
+* Add support for array parameters in automatic actions
+* Add tooltip to subtask icons
+* Add attribute title to external links
+* Render a link if the reference is a URL
+* Add icon to edit a task quickly on the board
+* Improve .htaccess when using HTTP Basic Authentication for Apache/FastCGI
+* Add note to specify incompatibility with mod_security
+
+Version 1.0.47 (October 3, 2017)
+--------------------------------
+
+New features:
+
+* Vietnamese translation
+
+Improvements:
+
+* Updated translations
+
+Security Issues:
+
+* Avoid people to alter other project resources by changing form data
+
+Version 1.0.46 (August 13, 2017)
+--------------------------------
+
+Security Issues:
+
+* Fix two privilege escalation issues: a standard user could reset the password
+of another user (including admin) by altering form data.
+(CVE-2017-12850 and CVE-2017-12851, discovered by "chbi").
+
+Improvements:
+
+* Add "Create another link" checkbox for internal link as in sub-task creation
+* Updated translations
+
+Bug fixes:
+
+* Fix parsing issue in phpToBytes() method
+
 Version 1.0.45 (June 23, 2017)
 ------------------------------
 

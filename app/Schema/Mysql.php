@@ -8,7 +8,34 @@ use PDO;
 use Kanboard\Core\Security\Token;
 use Kanboard\Core\Security\Role;
 
-const VERSION = 124;
+const VERSION = 127;
+
+function version_127(PDO $pdo)
+{
+    $pdo->exec("CREATE TABLE sessions (
+        id VARCHAR(255) NOT NULL,
+        expire_at INT NOT NULL,
+        data LONGTEXT,
+        PRIMARY KEY(id)
+    ) ENGINE=InnoDB CHARSET=utf8");
+}
+
+function version_126(PDO $pdo)
+{
+    $pdo->exec('CREATE TABLE predefined_task_descriptions (
+        id INT NOT NULL AUTO_INCREMENT,
+        project_id INT NOT NULL,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        FOREIGN KEY(project_id) REFERENCES projects(id) ON DELETE CASCADE,
+        PRIMARY KEY(id)
+    ) ENGINE=InnoDB CHARSET=utf8');
+}
+
+function version_125(PDO $pdo)
+{
+    $pdo->exec('ALTER TABLE projects DROP COLUMN is_everybody_allowed');
+}
 
 function version_124(PDO $pdo)
 {

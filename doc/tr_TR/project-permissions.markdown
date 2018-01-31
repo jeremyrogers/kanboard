@@ -15,9 +15,6 @@ Yalnızca yöneticilerin her şeye erişimi vardır.
 
 Rol atamaları ** Proje Ayarları> İzinler ** 'den ulaşılabilir:
 
-![Project Permissions](screenshots/project-permissions.png)
-
-Herkese izin vermeyi seçerseniz, tüm Kanboard kullanıcıları Proje Üyesi olarak değerlendirilecektir.
-Bu da artık rol yönetimi olmadığını gösterir. Kullanıcı veya grup başına izin kullanılamaz.
+![Project Permissions](../screenshots/project-permissions.png)
 
 Özel projeler izin tanımlayamaz.

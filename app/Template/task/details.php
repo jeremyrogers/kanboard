@@ -22,7 +22,7 @@
                     </li>
                     <?php if (! empty($task['reference'])): ?>
                         <li>
-                            <strong><?= t('Reference:') ?></strong> <span><?= $this->text->e($task['reference']) ?></span>
+                            <strong><?= t('Reference:') ?></strong> <span><?= $this->task->renderReference($task) ?></span>
                         </li>
                     <?php endif ?>
                     <?php if (! empty($task['score'])): ?>
@@ -92,12 +92,6 @@
                             <span><?= $this->text->e($task['creator_name'] ?: $task['creator_username']) ?></span>
                         </li>
                     <?php endif ?>
-                    <?php if ($task['date_due']): ?>
-                    <li>
-                        <strong><?= t('Due date:') ?></strong>
-                        <span><?= $this->dt->datetime($task['date_due']) ?></span>
-                    </li>
-                    <?php endif ?>
                     <?php if ($task['time_estimated']): ?>
                     <li>
                         <strong><?= t('Time estimated:') ?></strong>
@@ -116,6 +110,18 @@
             </div>
             <div class="task-summary-column">
                 <ul class="no-bullet">
+                    <?php if ($task['date_due']): ?>
+                        <li>
+                            <strong><?= t('Due date:') ?></strong>
+                            <span><?= $this->dt->datetime($task['date_due']) ?></span>
+                        </li>
+                    <?php endif ?>
+                    <?php if ($task['date_started']): ?>
+                        <li>
+                            <strong><?= t('Started:') ?></strong>
+                            <span><?= $this->dt->datetime($task['date_started']) ?></span>
+                        </li>
+                    <?php endif ?>
                     <li>
                         <strong><?= t('Created:') ?></strong>
                         <span><?= $this->dt->datetime($task['date_creation']) ?></span>
@@ -128,12 +134,6 @@
                     <li>
                         <strong><?= t('Completed:') ?></strong>
                         <span><?= $this->dt->datetime($task['date_completed']) ?></span>
-                    </li>
-                    <?php endif ?>
-                    <?php if ($task['date_started']): ?>
-                    <li>
-                        <strong><?= t('Started:') ?></strong>
-                        <span><?= $this->dt->datetime($task['date_started']) ?></span>
                     </li>
                     <?php endif ?>
                     <?php if ($task['date_moved']): ?>

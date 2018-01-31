@@ -43,6 +43,14 @@ class UserCredentialController extends BaseController
 
         list($valid, $errors) = $this->userValidator->validatePasswordModification($values);
 
+        if (! $this->userSession->isAdmin()) {
+            $values = array(
+                'id' => $this->userSession->getId(),
+                'password' => isset($values['password']) ? $values['password'] : '',
+                'confirmation' => isset($values['confirmation']) ? $values['confirmation'] : '',
+            );
+        }
+
         if ($valid) {
             if ($this->userModel->update($values)) {
                 $this->flash->success(t('Password modified successfully.'));

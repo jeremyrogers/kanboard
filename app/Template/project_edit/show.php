@@ -9,7 +9,6 @@
 <?php endif ?>
 <form method="post" action="<?= $this->url->href('ProjectEditController', 'update', array('project_id' => $project['id'], 'redirect' => 'edit')) ?>" autocomplete="off">
     <?= $this->form->csrf() ?>
-    <?= $this->form->hidden('id', $values) ?>
 
     <fieldset>
         <legend><?= t('General') ?></legend>
@@ -61,12 +60,6 @@
 
         <?= $this->form->label(t('Highest priority'), 'priority_end') ?>
         <?= $this->form->number('priority_end', $values, $errors, array('tabindex="10"')) ?>
-    </fieldset>
-
-    <fieldset>
-        <legend><?= t('Predefined Email Subjects') ?></legend>
-        <?= $this->form->textarea('predefined_email_subjects', $values, $errors, array('tabindex="11"')) ?>
-        <p class="form-help"><?= t('Write one subject by line.') ?></p>
     </fieldset>
 
     <?= $this->modal->submitButtons(array('tabindex' => 11)) ?>

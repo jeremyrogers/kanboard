@@ -15,9 +15,6 @@ Only administrators have access to everything.
 
 Role assignments are visible in **Project Settings > Permissions**:
 
-![Project Permissions](screenshots/project-permissions.png)
-
-If you choose to allow everybody, all Kanboard users will be considered 'Project Member'.
-With this setting, role management will have no effect. Permission per user or per group cannot be applied.
+![Project Permissions](../screenshots/project-permissions.png)
 
 Private projects cannot define permissions.
